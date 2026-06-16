@@ -4,17 +4,17 @@
     <div id="scroll-horizontal">
       <div
         id="card-content"
-        v-for="burguer in listaMenuHamburguers"
-        :key="burguer.id"
+        v-for="produto in listaProdutos"
+        :key="produto .id"
       >
         <div id="card-linha">
           <div class="foto-hamburguer">
-            <img width="300" height="200" :src="burguer.foto" />
+            <img width="300" height="200" :src="produto.foto" />
             <div class="card-coluna">
-              <p id="nome-content">{{ burguer.nome }}</p>
-              <p id="valor-content">R$ {{ burguer.valor }},00</p>
-              <p id="descricao-content">{{ burguer.descricao }}</p>
-              <button @click="selecionarBurguer(burguer)">Selecionar</button>
+              <p id="nome-content">{{ produto.nome }}</p>
+              <p id="valor-content">R$ {{ produto.valor }},00</p>
+              <p id="descricao-content">{{ produto.descricao }}</p>
+              <button @click="selecionarBurguer(produto)">Selecionar</button>
             </div>
           </div>
         </div>
@@ -27,15 +27,15 @@ export default {
   name: "MenuView",
   data() {
     return {
-      listaMenuHamburguers: [],
+      listaProdutos: [],
     };
   },
   methods: {
     async consultarMenu() {
-      const response = await fetch("http://localhost:3000/menu");
+      const response = await fetch("http://localhost:3000/vitrine");
       const dados = await response.json();
-      this.listaMenuHamburguers = dados.burgues;
-      console.log(this.listaMenuHamburguers);
+      this.listaProdutos = [...dados.desktops, ...dados.notebooks];
+      console.log(this.listaProdutos);
     },
     selecionarBurguer(burguerSelecionado) {
       const parametroBurguer = JSON.stringify(burguerSelecionado);
