@@ -2,10 +2,10 @@
     <div>
         <form id="pedido-form" @submit="criarPedido($event)">
             <div>
-                <p id="nome-hamburguer-content">
-                    {{ burguer && burguer.nome ? burguer.nome : "--" }}
+                <p id="nome-hamproduto-content">
+                    {{ produto && produto.nome ? produto.nome : "--" }}
                 </p>
-                <img id="foto-content" :src="burguer && burguer.foto ? burguer.foto : ''" />
+                <img id="foto-content" :src="produto && produto.foto ? produto.foto : ''" />
             </div>
             <div class="inputs" id="form-pedido">
                 <label>Nome</label>
@@ -15,7 +15,7 @@
                 <label> Ponto da carne</label>
                 <select v-model="pontoCarneSelecionado" name="ponto-carne" id="ponto-carne">
                     <option value="" selected>Selecione o ponto</option>
-                    <option v-for="pontoCarne in listaPontosCarne" :key="pontoCarne.id" :value="pontoCarne">
+                    <option v-for="pontoCarne in listaOpcoesFrete" :key="pontoCarne.id" :value="pontoCarne">
                         {{ pontoCarne.descricao }}
                     </option>
                 </select>
@@ -24,9 +24,9 @@
                 <label id="opcionais-titulo"> Selecione os opcionais</label>
                 <label id="opcionais-subtitulo"> Selecione os complementos</label>
 
-                <div v-for="complemento in listaComplementos" :key="complemento.id" class="checkbox-container">
+                <div v-for="complemento in listaHardwareExtras" :key="complemento.id" class="checkbox-container">
                     <input type="checkbox" :name="complemento.nome" :value="complemento"
-                        v-model="listaComplementosSelecionados" />
+                        v-model="listaHardwareExtrasSelecionados" />
                     <span>{{ complemento.nome }}</span>
                 </div>
 
@@ -48,44 +48,46 @@
 export default {
     name: "PedidoComponent",
     props: {
-        burguer: null,
+        produto: null,
     },
     data() {
         return {
-            listaPontosCarne: [],
-            listaComplementos: [],
-            listaBebidas: [],
+            listaOpcoesFrete: [],
+            listaHardwareExtras: [],
+            listaPerifericos: [],
             nomeCliente: "",
-            pontoCarneSelecionado: "",
-            listaComplementosSelecionados: [],
-            listaBebidasSelecionadas: [],
+            opcaoFreteSelecionada: "",
+            hardwareExtraSelecionado: [],
+            perifericosSelecionados: [],
         };
     },
     methods: {
-        async getTiposPontos() {
-            const response = await fetch("http://localhost:3000/tipos_pontos");
+        async getOpcoesFrete() {
+            const response = await fetch("http://localhost:3000/opcoes_frete");
             const dados = await response.json();
-            this.listaPontosCarne = dados;
+            this.listaOpcoesFrete = dados;
         },
+
         async getOpcionais() {
             const response = await fetch("http://localhost:3000/opcionais");
             const dados = await response.json();
-            this.listaComplementos = dados.complemento;
-            this.listaBebidas = dados.bebidas;
+            this.listaHardwareExtras = dados.hardware_extra;
+            this.listaBebidas = dados.perifericos;
         },
+        
         async criarPedido(e) {
             e.preventDefault();
 
             const dadosPedido = {
                 nome: this.nomeCliente,
-                ponto: this.pontoCarneSelecionado,
-                bebidas: Array.from(this.listaBebidasSelecionadas),
-                complemento: Array.from(this.listaComplementosSelecionados),
-                burguer: this.burguer,
-                statusId: 5,
+                frete: this.opcaoFreteSelecionada,
+                hardware_extra: Array.from(this.hardwareExtraSelecionado),
+                perifericos: Array.from(this.perifericosSelecionados),
+                produto_princiapal: this.produto,
+                statusId: 1,
             };
 
-            console.log(dadosPedido);
+            console.log("Enviando dados payload: ", dadosPedido);
 
             const dadosJson = JSON.stringify(dadosPedido);
 
@@ -94,10 +96,12 @@ export default {
                 headers: { "Content-Type": "application/json" },
                 body: dadosJson,
             });
+
+
         },
     },
     mounted() {
-        this.getTiposPontos();
+        this.getOpcoesFrete();
         this.getOpcionais();
     },
 };
@@ -115,7 +119,7 @@ export default {
     object-fit: cover;
 }
 
-#nome-hamburguer-content {
+#nome-hamproduto-content {
     font-size: 43px;
     font-weight: bold;
     text-align: start;
