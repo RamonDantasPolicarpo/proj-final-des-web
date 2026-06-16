@@ -90,72 +90,40 @@
       }
     ]
   },
-  "menu": {
-    "limitado": [
+  "vitrine": {
+    "desktops": [
       {
         "id": 1,
-        "nome": "Arretado",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1698926982654391866e311_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, suculento blend de 160 gramas flambado na manteiga de garrafa, coberto de queijo coalho e finalizado com geléia de pimenta Queensberry",
-        "valor": 38,
-        "eh_novidade": true
-      }
-    ],
-    "burgues": [
-      {
-        "id": 1,
-        "nome": "Diretoria",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429768651d76c8124dc_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, tomate grelhado e defumado na brasa, suculento blend de 160 gramas, queijo derretido na brasa, molho suave de gorgonzola coberto de crispy de alho poró.",
-        "valor": 35,
+        "nome": "PC Gamer Cablau Pro",
+        "foto": "https://images.unsplash.com/photo-1587202372634-32705e3bf49c?q=80&w=250&auto=format&fit=crop",
+        "descricao": "Processador Ryzen 5 5600X, Placa de Vídeo RTX 3060 12GB, 16GB RAM DDR4, SSD 500GB NVMe. O custo-benefício perfeito para rodar tudo no Alto.",
+        "valor": 4500,
         "eh_novidade": true
       },
       {
         "id": 2,
-        "nome": "Veggie",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429812651d76f4d8671_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese secreta, tomate assado e defumado na lenha frutífera, blend de arroz negro, batata baroa e Shimeji 150 gramas grelhado e regado ao azeite , queijo derretido na brasa e molho secreto de cebola caramelizada, tudo preparado com aquele sabor de churrasco.",
-        "valor": 35,
+        "nome": "PC Home Office Compacto",
+        "foto": "https://images.unsplash.com/photo-1547394765-185e1e68f34e?q=80&w=250&auto=format&fit=crop",
+        "descricao": "Processador Intel Core i3 12ª Gen, 8GB RAM, SSD 256GB. Ideal para estudos, planilhas e navegação fluida.",
+        "valor": 1800,
+        "eh_novidade": false
+      }
+    ],
+    "notebooks": [
+      {
+        "id": 1,
+        "nome": "Notebook Gamer Nitro 5",
+        "foto": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=250&auto=format&fit=crop",
+        "descricao": "Tela 15.6 IPS 144Hz, Processador Core i5 11ª Gen, GTX 1650, 8GB RAM, SSD 512GB. Portabilidade sem abrir mão da performance.",
+        "valor": 4100,
         "eh_novidade": true
       },
       {
-        "id": 3,
-        "nome": "Doritos",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696429871651d772fb9fbe_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial, suculento blend de 160 gramas, queijo cheddar derretido na brasa, cream cheese e Doritos.",
-        "valor": 32,
-        "eh_novidade": true
-      },
-      {
-        "id": 4,
-        "nome": "Campeiro",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696432070651d7fc6b7c98_75_75.jpeg",
-        "descricao": "Delicioso pão de brioche selado na brasa com manteiga de leite, maionese especial de alho e ervas, alface americana fresca e crocante, tomate grelhado e defumado, suculento hambúrguer de 160 gramas, queijo derretido na brasa.",
-        "valor": 30,
-        "eh_novidade": true
-      },
-      {
-        "id": 5,
-        "nome": "Braseirão",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1701549228656b94ac481d3_75_75.jpeg",
-        "descricao": "Delicioso hambúrguer no pão de brioche selado na brasa, com manteiga de leite, maionese especial com toque de alho e ervas, dois suculentos blend's de 160 gramas e queijo mussarela derretido na brasa.",
-        "valor": 30,
-        "eh_novidade": true
-      },
-      {
-        "id": 6,
-        "nome": "Braseiro",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696432090651d7fda3ebe1_75_75.jpeg",
-        "descricao": "Delicioso hambúrguer no pão de brioche selado na brasa, com manteiga de leite, maionese especial com toque de alho e ervas, suculento blend de 160 gramas, triplo queijo cheddar derretido na brasa.",
-        "valor": 20,
-        "eh_novidade": true
-      },
-      {
-        "id": 7,
-        "nome": "Churrasqueto",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/16978359266532eb960c34d_75_75.jpeg",
-        "descricao": "Delicioso hambúrguer no pão de brioche selado na brasa, com manteiga de leite, maionese especial com toque de alho e ervas, suculento blend de 120 gramas, triplo queijo cheddar derretido na brasa.",
-        "valor": 15,
+        "id": 2,
+        "nome": "Ultrabook Developer Edition",
+        "foto": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=250&auto=format&fit=crop",
+        "descricao": "Tela 14 Full HD, Processador Ryzen 7, 16GB RAM, Corpo em alumínio e bateria para 10 horas. A máquina ideal para codar onde estiver.",
+        "valor": 5200,
         "eh_novidade": true
       }
     ]
