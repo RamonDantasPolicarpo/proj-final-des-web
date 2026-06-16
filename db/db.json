@@ -20,27 +20,27 @@
   "status_pedido": [
     {
       "id": 1,
-      "descricao": "Pedido em espera"
+      "descricao": "Aguardando Pagamento"
     },
     {
       "id": 2,
-      "descricao": "Em produção"
+      "descricao": "Pagamento Aprovado"
     },
     {
       "id": 3,
-      "descricao": "A caminho"
+      "descricao": "Em Separação"
     },
     {
       "id": 4,
-      "descricao": "Entregue"
+      "descricao": "Faturado e Enviado"
     },
     {
       "id": 5,
-      "descricao": "Pedido pendente"
+      "descricao": "Saiu para Entrega"
     },
     {
       "id": 6,
-      "descricao": "Pedido realizado"
+      "descricao": "Entregue"
     }
   ],
   "pedidos": [],
