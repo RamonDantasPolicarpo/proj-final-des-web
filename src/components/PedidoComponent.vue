@@ -12,29 +12,26 @@
                 <input v-model="nomeCliente" type="text" placeholder="Digite seu Nome" id="nome-cliente" />
             </div>
             <div class="inputs">
-                <label> Ponto da carne</label>
-                <select v-model="pontoCarneSelecionado" name="ponto-carne" id="ponto-carne">
-                    <option value="" selected>Selecione o ponto</option>
-                    <option v-for="pontoCarne in listaOpcoesFrete" :key="pontoCarne.id" :value="pontoCarne">
-                        {{ pontoCarne.descricao }}
+                <label>Opcoes de frete</label>
+                <select v-model="opcaoFreteSelecionada" name="ponto-carne" id="ponto-carne">
+                    <option value="" selected>Selecione a opcao de frete</option>
+                    <option v-for="opcaoFrete in listaOpcoesFrete" :key="opcaoFrete.id" :value="opcaoFrete">
+                        {{ opcaoFrete.descricao }}
                     </option>
                 </select>
             </div>
             <div class="inputs">
-                <label id="opcionais-titulo"> Selecione os opcionais</label>
-                <label id="opcionais-subtitulo"> Selecione os complementos</label>
-
-                <div v-for="complemento in listaHardwareExtras" :key="complemento.id" class="checkbox-container">
-                    <input type="checkbox" :name="complemento.nome" :value="complemento"
-                        v-model="listaHardwareExtrasSelecionados" />
-                    <span>{{ complemento.nome }}</span>
+                <label id="opcionais-titulo">Selecione hardwares extras</label>
+                <div v-for="hardwares in listaHardwareExtras" :key="hardwares.id" class="checkbox-container">
+                    <input type="checkbox" :name="hardwares.nome" :value="hardwares"
+                        v-model="hardwareExtraSelecionado" />
+                    <span>{{ hardwares.nome }}</span>
                 </div>
 
-                <label>Adicione uma bebida</label>
-
-                <div v-for="bebida in listaBebidas" :key="bebida.id" class="checkbox-container">
-                    <input type="checkbox" :name="bebida.nome" :value="bebida" v-model="listaBebidasSelecionadas" />
-                    <span>{{ bebida.nome }}</span>
+                <label>Adicione um periférico</label>
+                <div v-for="periferico in listaPerifericos" :key="periferico.id" class="checkbox-container">
+                    <input type="checkbox" :name="periferico.nome" :value="periferico" v-model="perifericosSelecionados" />
+                    <span>{{ periferico.nome }}</span>
                 </div>
 
                 <div class="inputs">
@@ -72,7 +69,7 @@ export default {
             const response = await fetch("http://localhost:3000/opcionais");
             const dados = await response.json();
             this.listaHardwareExtras = dados.hardware_extra;
-            this.listaBebidas = dados.perifericos;
+            this.listaPerifericos = dados.perifericos;
         },
         
         async criarPedido(e) {
