@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Configuração do Pedido</h1>
-    <pedido-component :burguer="burguerSelecionado" />
+    <pedido-component :produto="produtoSelecionado" />
   </div>
 </template>
 
@@ -15,14 +15,14 @@ export default {
   },
   data() {
     return {
-      burguerSelecionado: null,
+      produtoSelecionado: null,
     };
   },
   mounted(){
     const query = this.$route.query;
-    if( query.burguer ) {
-      const decodedBurguer = JSON.parse(decodeURIComponent(query.burguer));
-      this.burguerSelecionado = decodedBurguer;
+    if( query.produto ) {
+      const decodedProduto = JSON.parse(decodeURIComponent(query.produto));
+      this.produtoSelecionado = decodedProduto;
     }
   },
 };
