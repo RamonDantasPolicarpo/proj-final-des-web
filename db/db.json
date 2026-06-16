@@ -45,55 +45,47 @@
   ],
   "pedidos": [],
   "opcionais": {
-    "complemento": [
+    "hardware_extra": [
       {
         "id": 1,
-        "nome": "Combo Bebida + Batata",
-        "descricao": "Batata ondulada sequinha e crocante temperada com lemon pepper + bebida de sua escolha",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431534651d7daeba24e_75_75.jpeg",
-        "valor": 11,
+        "nome": "Kit Memória RAM 16GB (2x8GB) DDR4",
+        "descricao": "Frequência de 3200MHz, com dissipador de calor e iluminação RGB.",
+        "foto": "https://images.unsplash.com/photo-1562976540-b508567f58f4?q=80&w=250&auto=format&fit=crop",
+        "valor": 320,
         "eh_novidade": true
       },
       {
         "id": 2,
-        "nome": "Batata ondulada sequinha e crocante temperada com lemon pepper",
-        "descricao": "",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431513651d7d99094b6_75_75.jpeg",
-        "valor": 7,
+        "nome": "SSD NVMe M.2 1TB",
+        "descricao": "Leitura de 3500MB/s e gravação de 3000MB/s. Mais velocidade para o seu setup.",
+        "foto": "https://images.unsplash.com/photo-1597849149431-155e8249de65?q=80&w=250&auto=format&fit=crop",
+        "valor": 450,
         "eh_novidade": false
       }
     ],
-    "bebidas": [
+    "perifericos": [
       {
         "id": 1,
-        "nome": "Coca Cola Lata 310 ml",
-        "descricao": "",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
-        "valor": 6,
-        "eh_novidade": false
+        "nome": "Teclado Mecânico Switch Brown",
+        "descricao": "Formato TKL 80%, layout ABNT2, teclas double-shot injection e iluminação customizável.",
+        "foto": "https://images.unsplash.com/photo-1595225476474-87563907a212?q=80&w=250&auto=format&fit=crop",
+        "valor": 280,
+        "eh_novidade": true
       },
       {
         "id": 2,
-        "nome": "Shweppes Citrus 310 ml",
-        "descricao": "",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/16966989566521924cc9418_75_75.jpeg",
-        "valor": 6,
-        "eh_novidade": false
+        "nome": "Mouse Sem Fio Ergonômico",
+        "descricao": "Conexão 2.4GHz e Bluetooth, sensor de alta precisão de 10.000 DPI, design focado no conforto prolongado.",
+        "foto": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?q=80&w=250&auto=format&fit=crop",
+        "valor": 190,
+        "eh_novidade": true
       },
       {
         "id": 3,
-        "nome": "Coca Cola Zero Lata 310 ml",
-        "descricao": "",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431455651d7d5fd3661_75_75.jpeg",
-        "valor": 6,
-        "eh_novidade": false
-      },
-      {
-        "id": 4,
-        "nome": "Del Valle Uva Lata 290 ml",
-        "descricao": "",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431434651d7d4a1e285_75_75.jpeg",
-        "valor": 7,
+        "nome": "Headset Gamer com Microfone Noise Cancelling",
+        "descricao": "Som surround 7.1 virtual, drivers de 50mm e conchas super macias.",
+        "foto": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?q=80&w=250&auto=format&fit=crop",
+        "valor": 250,
         "eh_novidade": false
       }
     ]
