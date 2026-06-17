@@ -4,10 +4,10 @@
             <div>
                 <div>
                     <div>#ID</div>
-                    <div>Nome</div>
-                    <div>Hamburguer</div>
-                    <div>Ponto</div>
-                    <div>opcionais</div>
+                    <div>Cliente</div>
+                    <div>Produto</div>
+                    <div>Frete</div>
+                    <div>Adicionais</div>
                     <div>Status</div>
                     <div>Ações</div>
                 </div>
@@ -17,18 +17,18 @@
         <div v-for="pedido in listaPedidosRealizados" :key="pedido.id">
             <div>{{ pedido.id }}</div>
             <div>{{ pedido.nome }}</div>
-            <div>{{ pedido.burguer.nome }}</div>
-            <div>{{ pedido.ponto.descricao }}</div>
+            <div>{{ pedido.produto_principal ? pedido.produto_principal.nome : 'N/A' }}</div>
+            <div>{{ pedido.frete ? pedido.frete.descricao : 'N/A' }}</div>
             <div>
                 <ul>
-                    <li v-for="(complemento, index) in pedido.complemento" :key="index">
-                        {{ complemento.nome }}
+                    <li v-for="(hardware, index) in pedido.hardware_extra" :key="'hw-'+index">
+                        {{ hardware.nome }}
                     </li>
                 </ul>
-                <div></div>
+                <div style="height: 1px; background: #ccc; margin: 4px 0;"></div>
                 <ul>
-                    <li v-for="(refri, index) in pedido.bebidas" :key="index">
-                        {{ refri.nome }}
+                    <li v-for="(periferico, index) in pedido.perifericos" :key="'perif'+index">
+                        {{ periferico.nome }}
                     </li>
                 </ul>
             </div>
@@ -42,7 +42,7 @@
                 </select>
             </div>
             <div>
-                <img @click="deletarPedido(pedido.id)" src="/img/icone_lixeira.png" width="35px" height="35px" />
+                <button @click="deletarPedido(pedido.id)">🗑️ Deletar</button>
             </div>
         </div>
     </div>

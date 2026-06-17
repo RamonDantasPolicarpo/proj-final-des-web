@@ -13,7 +13,7 @@
             </div>
             <div>
                 <label>Opcoes de frete</label>
-                <select v-model="opcaoFreteSelecionada" name="ponto-carne">
+                <select v-model="opcaoFreteSelecionada" name="opcao-frete">
                     <option value="" selected>Selecione a opcao de frete</option>
                     <option v-for="opcaoFrete in listaOpcoesFrete" :key="opcaoFrete.id" :value="opcaoFrete">
                         {{ opcaoFrete.descricao }}
@@ -82,7 +82,7 @@ export default {
                 frete: this.opcaoFreteSelecionada,
                 hardware_extra: Array.from(this.hardwareExtraSelecionado),
                 perifericos: Array.from(this.perifericosSelecionados),
-                produto_princiapal: this.produto,
+                produto_principal: this.produto,
                 statusId: 1,
             };
             console.log("Enviando dados payload: ", dadosPedido);

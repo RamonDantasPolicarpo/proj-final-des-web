@@ -9,7 +9,7 @@
 import PedidoComponent from "@/components/PedidoComponent.vue";
 
 export default {
-  name: "ConfiguracaoPedidoView",
+  name: "CheckooutView",
   components: {
     PedidoComponent,
   },

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Menu</h1>
+    <h1>Catálogo</h1>
     <div>
       <div
         v-for="produto in listaProdutos"
@@ -13,7 +13,7 @@
               <p>{{ produto.nome }}</p>
               <p>R$ {{ produto.valor }},00</p>
               <p>{{ produto.descricao }}</p>
-              <button @click="selecionarBurguer(produto)">Selecionar</button>
+              <button @click="selecionarProduto(produto)">Selecionar</button>
             </div>
           </div>
         </div>
@@ -33,22 +33,22 @@ export default {
 
   methods: {
 
-    async consultarMenu() {
+    async consultarCatalogo() {
       const response = await fetch("http://localhost:3000/catalogo");
       const dados = await response.json();
       this.listaProdutos = [...dados.desktops, ...dados.notebooks];
       console.log(this.listaProdutos);
     },
 
-    selecionarBurguer(burguerSelecionado) {
-      const parametroBurguer = JSON.stringify(burguerSelecionado);
-      const encodedBurguer = encodeURIComponent(parametroBurguer);
-      this.$router.push({ path: "/config-pedido", query: { burguer: encodedBurguer } });
+    selecionarProduto(produtoSelecionado) {
+      const parametroProduto = JSON.stringify(produtoSelecionado);
+      const encodedProduto = encodeURIComponent(parametroProduto);
+      this.$router.push({ path: "/checkout", query: { produto: encodedProduto } });
     },
   },
 
   mounted() {
-    this.consultarMenu();
+    this.consultarCatalogo();
   },
 };
 </script>

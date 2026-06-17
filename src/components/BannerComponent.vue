@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Bem-vindo ao T-Burguer!</h1>
+        <h1>Bem-vindo a Cablau</h1>
     </div>
 </template>
 
