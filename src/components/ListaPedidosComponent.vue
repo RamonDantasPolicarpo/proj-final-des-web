@@ -47,7 +47,9 @@
         </div>
     </div>
 </template>
+
 <script>
+
 export default {
     name: "ListaPedidoComponent",
     data() {
@@ -56,15 +58,19 @@ export default {
             listaStatusPedido: [],
         };
     },
+
     methods: {
+
         async consultarPedidos() {
             const response = await fetch("http://localhost:3000/pedidos");
             this.listaPedidosRealizados = await response.json();
         },
+
         async consultarStatusPedido() {
             const response = await fetch("http://localhost:3000/status_pedido");
             this.listaStatusPedido = await response.json();
         },
+        
         async atualizarStatusPedido(event, idPedido) {
             const idPedidoAtualizado = event.target.value;
             const atualizacaoJson = JSON.stringify({ statusId: idPedidoAtualizado });
@@ -89,40 +95,7 @@ export default {
     },
 };
 </script>
+
 <style scoped>
-#pedidos-tabela {
-    width: 100%;
-    margin: 0 auto;
-}
 
-#pedidos-tabela-cabecalho,
-#pedidos-tabela-linhas,
-.pedidos-tabela-linha {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-#pedidos-tabela-cabecalho {
-    font-weight: bold;
-    padding: 12px;
-    border-bottom: 2px solid #222;
-}
-
-#pedidos-tabela-cabecalho div,
-.pedidos-tabela-linha div {
-    width: 18%;
-}
-
-.pedidos-tabela-linha {
-    width: 100%;
-    padding: 12px;
-    border-bottom: 1px dotted #222;
-}
-
-#pedidos-tabela-cabecalho #ordem-id,
-.pedidos-tabela-linha #ordem-numero,
-.pedidos-tabela-linha #div-acoes,
-#pedidos-tabela-cabecalho #div-acoes {
-    width: 5%;
-}
 </style>

@@ -17,39 +17,4 @@ export default {
 </script>
 
 <style scoped>
-#logo {
-  width: 60px;
-  height: 60px;
-}
-
-#nav #logo-url {
-  margin-right: auto;
-  margin-left: 0;
-}
-
-#nav a {
-  color: darkgoldenrod;
-  text-decoration: none;
-  margin: 12px;
-  transition: 0.5s;
-}
-
-#nav a:hover {
-  color: white;
-  font-size: 20px;
-}
-
-#logo-url:hover {
-  transform: rotate(360deg);
-  transition: transform 0.5s;
-}
-
-#nav {
-  background-color: #333;
-  border-bottom: 3px solid darkgoldenrod;
-  padding: 15px 50px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
 </style>

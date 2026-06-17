@@ -18,6 +18,7 @@ export default {
       produtoSelecionado: null,
     };
   },
+
   mounted(){
     const query = this.$route.query;
     if( query.produto ) {
@@ -28,4 +29,5 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+</style>
