@@ -1,41 +1,41 @@
 <template>
     <div>
-        <form id="pedido-form" @submit="criarPedido($event)">
+        <form @submit="criarPedido($event)">
             <div>
-                <p id="nome-hamproduto-content">
+                <p>
                     {{ produto && produto.nome ? produto.nome : "--" }}
                 </p>
-                <img id="foto-content" :src="produto && produto.foto ? produto.foto : ''" />
+                <img :src="produto && produto.foto ? produto.foto : ''" />
             </div>
-            <div class="inputs" id="form-pedido">
+            <div>
                 <label>Nome</label>
-                <input v-model="nomeCliente" type="text" placeholder="Digite seu Nome" id="nome-cliente" />
+                <input v-model="nomeCliente" type="text" placeholder="Digite seu Nome" />
             </div>
-            <div class="inputs">
+            <div>
                 <label>Opcoes de frete</label>
-                <select v-model="opcaoFreteSelecionada" name="ponto-carne" id="ponto-carne">
+                <select v-model="opcaoFreteSelecionada" name="ponto-carne">
                     <option value="" selected>Selecione a opcao de frete</option>
                     <option v-for="opcaoFrete in listaOpcoesFrete" :key="opcaoFrete.id" :value="opcaoFrete">
                         {{ opcaoFrete.descricao }}
                     </option>
                 </select>
             </div>
-            <div class="inputs">
-                <label id="opcionais-titulo">Selecione hardwares extras</label>
-                <div v-for="hardwares in listaHardwareExtras" :key="hardwares.id" class="checkbox-container">
+            <div>
+                <label>Selecione hardwares extras</label>
+                <div v-for="hardwares in listaHardwareExtras" :key="hardwares.id">
                     <input type="checkbox" :name="hardwares.nome" :value="hardwares"
                         v-model="hardwareExtraSelecionado" />
                     <span>{{ hardwares.nome }}</span>
                 </div>
 
                 <label>Adicione um periférico</label>
-                <div v-for="periferico in listaPerifericos" :key="periferico.id" class="checkbox-container">
+                <div v-for="periferico in listaPerifericos" :key="periferico.id">
                     <input type="checkbox" :name="periferico.nome" :value="periferico" v-model="perifericosSelecionados" />
                     <span>{{ periferico.nome }}</span>
                 </div>
 
-                <div class="inputs">
-                    <input type="submit" class="submit-btn" value="Confirmar Pedido" />
+                <div>
+                    <input type="submit" value="Confirmar Pedido" />
                 </div>
             </div>
         </form>

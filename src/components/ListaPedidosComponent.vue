@@ -1,21 +1,21 @@
 <template>
     <div>
-        <div id="pedidos-tabela">
+        <div>
             <div>
-                <div id="pedidos-tabela-cabecalho">
-                    <div id="ordem-id">#ID</div>
+                <div>
+                    <div>#ID</div>
                     <div>Nome</div>
                     <div>Hamburguer</div>
                     <div>Ponto</div>
                     <div>opcionais</div>
                     <div>Status</div>
-                    <div id="div-acoes">Ações</div>
+                    <div>Ações</div>
                 </div>
             </div>
         </div>
 
-        <div class="pedidos-tabela-linha" v-for="pedido in listaPedidosRealizados" :key="pedido.id">
-            <div id="ordem-numero">{{ pedido.id }}</div>
+        <div v-for="pedido in listaPedidosRealizados" :key="pedido.id">
+            <div>{{ pedido.id }}</div>
             <div>{{ pedido.nome }}</div>
             <div>{{ pedido.burguer.nome }}</div>
             <div>{{ pedido.ponto.descricao }}</div>
@@ -25,7 +25,7 @@
                         {{ complemento.nome }}
                     </li>
                 </ul>
-                <div class="divider"></div>
+                <div></div>
                 <ul>
                     <li v-for="(refri, index) in pedido.bebidas" :key="index">
                         {{ refri.nome }}
@@ -33,7 +33,7 @@
                 </ul>
             </div>
             <div>
-                <select @change="atualizarStatusPedido($event, pedido.id)" name="status" class="status">
+                <select @change="atualizarStatusPedido($event, pedido.id)" name="status">
                     <option value="">Selecione</option>
                     <option v-for="status in listaStatusPedido" :key="status.id" :value="status.id"
                         :selected="status.id == pedido.statusId">
@@ -41,7 +41,7 @@
                     </option>
                 </select>
             </div>
-            <div id="div-acoes">
+            <div>
                 <img @click="deletarPedido(pedido.id)" src="/img/icone_lixeira.png" width="35px" height="35px" />
             </div>
         </div>

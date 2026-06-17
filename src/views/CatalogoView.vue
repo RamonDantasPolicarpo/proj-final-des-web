@@ -1,19 +1,18 @@
 <template>
   <div>
     <h1>Menu</h1>
-    <div id="scroll-horizontal">
+    <div>
       <div
-        id="card-content"
         v-for="produto in listaProdutos"
         :key="produto .id"
       >
-        <div id="card-linha">
-          <div class="foto-hamburguer">
+        <div>
+          <div>
             <img width="300" height="200" :src="produto.foto" />
-            <div class="card-coluna">
-              <p id="nome-content">{{ produto.nome }}</p>
-              <p id="valor-content">R$ {{ produto.valor }},00</p>
-              <p id="descricao-content">{{ produto.descricao }}</p>
+            <div>
+              <p>{{ produto.nome }}</p>
+              <p>R$ {{ produto.valor }},00</p>
+              <p>{{ produto.descricao }}</p>
               <button @click="selecionarBurguer(produto)">Selecionar</button>
             </div>
           </div>
