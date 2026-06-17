@@ -12,10 +12,18 @@ export default {
 
 <style scoped>
 .banner {
-    padding-top: 1em;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1rem;
+    box-sizing: border-box;
 }
 
 .banner img {
-    width: 100vw;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: var(--color-shadow);
 }
 </style>
