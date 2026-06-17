@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h1>Bem-vindo a Pichado</h1>
+    <div class="banner">
+        <img src="../assets/Banner.png" alt="">
     </div>
 </template>
 
@@ -11,4 +11,11 @@ export default {
 </script>
 
 <style scoped>
+.banner {
+    padding-top: 1em;
+}
+
+.banner img {
+    width: 100vw;
+}
 </style>

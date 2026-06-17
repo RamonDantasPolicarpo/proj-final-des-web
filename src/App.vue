@@ -1,17 +1,19 @@
 <template>
-  <NavBarComponent />
-  <BannerComponent />
-  <router-view />
+  <div id="app-container">
+    <NavBarComponent />
+    <main class="main-content">
+      <router-view />
+    </main>
+  </div>
 </template>
 
 <script>
-import BannerComponent from "./components/BannerComponent.vue";
 import NavBarComponent from "./components/NavBarComponent.vue";
+
 export default {
   name: "App",
   components: {
     NavBarComponent,
-    BannerComponent,
   },
 };
 </script>
@@ -57,6 +59,15 @@ export default {
   --color-warning: #f59e0b;
   --color-error: #ef4444;
   --color-info: #3b82f6;
+}
 
+#app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  padding-top: 70px;
 }
 </style>
