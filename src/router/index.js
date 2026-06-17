@@ -1,18 +1,19 @@
 import { createRouter, createWebHistory } from "vue-router";
-import MenuView from "@/views/CatalogoView.vue";
 import PedidosView from "@/views/PedidosView.vue";
-import ConfiguracaoPedidoView from "@/views/CheckoutView.vue";
+import CatalogoView from "@/views/CatalogoView.vue";
+import CheckoutView from "@/views/CheckoutView.vue";
+
 
 const routes = [
   {
     path: "/",
     name: "home",
-    component: MenuView,
+    component: CatalogoView,
   },
   {
-    path: "/menu",
-    name: "menu",
-    component: MenuView,
+    path: "/catalogo",
+    name: "catalogo",
+    component: CatalogoView,
   },
   {
     path: "/pedidos",
@@ -20,9 +21,9 @@ const routes = [
     component: PedidosView,
   },
   {
-    path: "/config-pedido",
-    name: "config-pedido",
-    component: ConfiguracaoPedidoView,
+    path: "/checkout",
+    name: "checkout",
+    component: CheckoutView,
   },
 ];
 

@@ -4,7 +4,7 @@
       <router-link to="/">
         <img src="/img/logo_tburguer.png" />
       </router-link>
-      <router-link to="/menu">Menu</router-link> |
+      <router-link to="/catalogo">Catálogo</router-link> |
       <router-link to="/pedidos">Pedidos</router-link>
     </nav>
   </div>
