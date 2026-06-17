@@ -4,16 +4,19 @@
     <main class="main-content">
       <router-view />
     </main>
+    <FooterComponent />
   </div>
 </template>
 
 <script>
 import NavBarComponent from "./components/NavBarComponent.vue";
+import FooterComponent from "./components/FooterComponent.vue";
 
 export default {
   name: "App",
   components: {
     NavBarComponent,
+    FooterComponent,
   },
 };
 </script>
