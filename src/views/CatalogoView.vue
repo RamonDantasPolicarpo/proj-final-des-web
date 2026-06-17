@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     async consultarMenu() {
-      const response = await fetch("http://localhost:3000/vitrine");
+      const response = await fetch("http://localhost:3000/catalogo");
       const dados = await response.json();
       this.listaProdutos = [...dados.desktops, ...dados.notebooks];
       console.log(this.listaProdutos);
