@@ -1,19 +1,5 @@
 <template>
     <div>
-        <div>
-            <div>
-                <div>
-                    <div>#ID</div>
-                    <div>Cliente</div>
-                    <div>Produto</div>
-                    <div>Frete</div>
-                    <div>Adicionais</div>
-                    <div>Status</div>
-                    <div>Ações</div>
-                </div>
-            </div>
-        </div>
-
         <div v-for="pedido in listaPedidosRealizados" :key="pedido.id">
             <div>{{ pedido.id }}</div>
             <div>{{ pedido.nome }}</div>
@@ -21,13 +7,13 @@
             <div>{{ pedido.frete ? pedido.frete.descricao : 'N/A' }}</div>
             <div>
                 <ul>
-                    <li v-for="(hardware, index) in pedido.hardware_extra" :key="'hw-'+index">
+                    <li v-for="(hardware, index) in pedido.hardware_extra" :key="'hw-' + index">
                         {{ hardware.nome }}
                     </li>
                 </ul>
                 <div style="height: 1px; background: #ccc; margin: 4px 0;"></div>
                 <ul>
-                    <li v-for="(periferico, index) in pedido.perifericos" :key="'perif'+index">
+                    <li v-for="(periferico, index) in pedido.perifericos" :key="'perif' + index">
                         {{ periferico.nome }}
                     </li>
                 </ul>
@@ -62,31 +48,32 @@ export default {
     methods: {
 
         async consultarPedidos() {
-            const response = await fetch("http://localhost:3000/pedidos");
+            const response = await fetch(`${process.env.VUE_APP_API_URL}/pedidos`);
             this.listaPedidosRealizados = await response.json();
         },
 
         async consultarStatusPedido() {
-            const response = await fetch("http://localhost:3000/status_pedido");
+            const response = await fetch(`${process.env.VUE_APP_API_URL}/status_pedido`);
             this.listaStatusPedido = await response.json();
         },
-        
+
         async atualizarStatusPedido(event, idPedido) {
             const idPedidoAtualizado = event.target.value;
             const atualizacaoJson = JSON.stringify({ statusId: idPedidoAtualizado });
-            await fetch(`http://localhost:3000/pedidos/${idPedido}`, {
+            await fetch(`${process.env.VUE_APP_API_URL}/pedidos/${idPedido}`, {
                 method: "PATCH",
                 headers: { "Content-type": "application/json" },
                 body: atualizacaoJson,
             });
-            //fazer algo ápos alterar
+            this.consultarPedidos();
         },
 
         async deletarPedido(idPedido) {
-            await fetch(`http://localhost:3000/pedidos/${idPedido}`, {
+            await fetch(`${process.env.VUE_APP_API_URL}/pedidos/${idPedido}`, {
                 method: "DELETE",
             });
             this.listaPedidosRealizados;
+            this.consultarPedidos();
         },
     },
     mounted() {
@@ -96,6 +83,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

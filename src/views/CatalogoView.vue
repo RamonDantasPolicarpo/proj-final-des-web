@@ -1,21 +1,14 @@
 <template>
   <div>
     <h1>Catálogo</h1>
-    <div>
-      <div
-        v-for="produto in listaProdutos"
-        :key="produto .id"
-      >
+    <div class="container-catalogo">
+      <div v-for="produto in listaProdutos" :key="produto.id">
+        <img width="300" height="200" :src="produto.foto" />
         <div>
-          <div>
-            <img width="300" height="200" :src="produto.foto" />
-            <div>
-              <p>{{ produto.nome }}</p>
-              <p>R$ {{ produto.valor }},00</p>
-              <p>{{ produto.descricao }}</p>
-              <button @click="selecionarProduto(produto)">Selecionar</button>
-            </div>
-          </div>
+          <p>{{ produto.nome }}</p>
+          <p>R$ {{ produto.valor }},00</p>
+          <p>{{ produto.descricao }}</p>
+          <button @click="selecionarProduto(produto)">Selecionar</button>
         </div>
       </div>
     </div>
@@ -34,7 +27,7 @@ export default {
   methods: {
 
     async consultarCatalogo() {
-      const response = await fetch("http://localhost:3000/catalogo");
+      const response = await fetch(`${process.env.VUE_APP_API_URL}/catalogo`);
       const dados = await response.json();
       this.listaProdutos = [...dados.desktops, ...dados.notebooks];
       console.log(this.listaProdutos);
@@ -54,4 +47,8 @@ export default {
 </script>
 
 <style scoped>
+.container-catalogo {
+  display: flex;
+}
+
 </style>

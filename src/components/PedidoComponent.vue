@@ -63,13 +63,13 @@ export default {
     methods: {
 
         async getOpcoesFrete() {
-            const response = await fetch("http://localhost:3000/opcoes_frete");
+            const response = await fetch(`${process.env.VUE_APP_API_URL}/opcoes_frete`);
             const dados = await response.json();
             this.listaOpcoesFrete = dados;
         },
         
         async getOpcionais() {
-            const response = await fetch("http://localhost:3000/opcionais");
+            const response = await fetch(`${process.env.VUE_APP_API_URL}/opcionais`);
             const dados = await response.json();
             this.listaHardwareExtras = dados.hardware_extra;
             this.listaPerifericos = dados.perifericos;
@@ -87,7 +87,7 @@ export default {
             };
             console.log("Enviando dados payload: ", dadosPedido);
             const dadosJson = JSON.stringify(dadosPedido);
-            const req = await fetch("http://localhost:3000/pedidos", {
+            const req = await fetch(`${process.env.VUE_APP_API_URL}/pedidos`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: dadosJson,
