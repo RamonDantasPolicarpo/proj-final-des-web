@@ -57,6 +57,9 @@ export default {
             opcaoFreteSelecionada: "",
             hardwareExtraSelecionado: [],
             perifericosSelecionados: [],
+            alertaMenssagem: "",
+            alertaTipo: "",
+            alertaVisivel: false
         };
     },
 
@@ -74,9 +77,24 @@ export default {
             this.listaHardwareExtras = dados.hardware_extra;
             this.listaPerifericos = dados.perifericos;
         },
+
+        exibirAlerta(mensagem, tipo) {
+            this.alertaMenssagem = mensagem;
+            this.alertaTipo = tipo;
+            this.alertaVisivel = true;
+
+            setTimeout(() => {
+                this.alertaVisivel = false;
+            }, 3000);
+        }
         
         async criarPedido(e) {
             e.preventDefault();
+
+            if(!this.produto) {
+                this.exibirAlerta
+            }
+
             const dadosPedido = {
                 nome: this.nomeCliente,
                 frete: this.opcaoFreteSelecionada,
