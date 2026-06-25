@@ -25,10 +25,12 @@
 
 <script>
 import BannerComponent from '@/components/BannerComponent.vue';
+import AlertComponent from '@/components/AlertComponent.vue';
 export default {
     name: "HomeView",
     components: {
-        BannerComponent
+        BannerComponent,
+        AlertComponent
     },
     data() {
         return {
