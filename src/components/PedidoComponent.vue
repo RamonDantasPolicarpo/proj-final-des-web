@@ -59,6 +59,7 @@ export default {
             perifericosSelecionados: [],
             alertaMenssagem: "",
             alertaTipo: "",
+            alertaIcone: "",
             alertaVisivel: false
         };
     },
@@ -78,21 +79,27 @@ export default {
             this.listaPerifericos = dados.perifericos;
         },
 
-        exibirAlerta(mensagem, tipo) {
+        exibirAlerta(mensagem, tipo, icone) {
             this.alertaMenssagem = mensagem;
             this.alertaTipo = tipo;
+            this.alertaIcone = icone;
             this.alertaVisivel = true;
 
             setTimeout(() => {
                 this.alertaVisivel = false;
             }, 3000);
-        }
+        },
         
         async criarPedido(e) {
             e.preventDefault();
 
             if(!this.produto) {
-                this.exibirAlerta
+                this.exibirAlerta("Por favor, volte ao catálogo e selecione um produto principal.", "error", "circle-xmark");
+                return;
+            }
+            if(this.nomeCliente.trim() === "" || this.opcaoFreteSelecionada === "") {
+                this.exibirAlerta("O nome do cliente e frete são campos obrigatórios!", "warning", "warning");
+                return;
             }
 
             const dadosPedido = {
