@@ -43,10 +43,6 @@ export default {
 
   mounted() {
     this.consultarCatalogo();
-
-    // tentando descobrir pq não funciona no deploy
-    console.log("URL DA API VEM DE ONDE:", process.env.VUE_APP_API_URL);
-    this.consultarCatalogo();
   },
 };
 </script>
