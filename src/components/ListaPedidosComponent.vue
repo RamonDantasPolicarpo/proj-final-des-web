@@ -1,6 +1,6 @@
 <template>
     <div class="lista-pedidos-container">
-        <AlertMessage :mensagem="alertaMensagem" :tipo="alertaTipo" :visivel="alertaVisivel" />
+        <AlertComponent :mensagem="alertaMenssagem" :tipo="alertaTipo" :icone="alertaIcone" :visivel="alertaVisivel" />
         <div v-if="listaPedidosRealizados.length === 0" class="empty-state">
             <p>Nenhuma encomenda recebida ainda.</p>
             <router-link to="/catalogo" class="btn-voltar">Ver Catálogo</router-link>
@@ -60,17 +60,37 @@
 </template>
 
 <script>
+import AlertComponent from './AlertComponent.vue';
 
 export default {
     name: "ListaPedidoComponent",
+
+    components: {
+        AlertComponent,
+    },
+
     data() {
         return {
             listaPedidosRealizados: [],
             listaStatusPedido: [],
+            alertaMenssagem: "",
+            alertaTipo: "",
+            alertaIcone: "",
+            alertaVisivel: false
         };
     },
 
     methods: {
+        exibirAlerta(mensagem, tipo, icone) {
+            this.alertaMenssagem = mensagem;
+            this.alertaTipo = tipo;
+            this.alertaIcone = icone;
+            this.alertaVisivel = true;
+
+            setTimeout(() => {
+                this.alertaVisivel = false;
+            }, 5000);
+        },
 
         async consultarPedidos() {
             const response = await fetch(`${process.env.VUE_APP_API_URL}/pedidos`);
@@ -85,20 +105,32 @@ export default {
         async atualizarStatusPedido(event, idPedido) {
             const idPedidoAtualizado = event.target.value;
             const atualizacaoJson = JSON.stringify({ statusId: idPedidoAtualizado });
-            await fetch(`${process.env.VUE_APP_API_URL}/pedidos/${idPedido}`, {
-                method: "PATCH",
-                headers: { "Content-type": "application/json" },
-                body: atualizacaoJson,
-            });
-            this.consultarPedidos();
+            try {
+                await fetch(`${process.env.VUE_APP_API_URL}/pedidos/${idPedido}`, {
+                    method: "PATCH",
+                    headers: { "Content-type": "application/json" },
+                    body: atualizacaoJson,
+                });
+                this.exibirAlerta("Estado de encomenda atualizado!", "success", "circle-check");
+                this.consultarPedidos();
+            }
+            catch (error) {
+                this.exibirAlerta("Erro ao atualizar estado.", "error", "circle-xmark");
+            }
         },
 
         async deletarPedido(idPedido) {
-            await fetch(`${process.env.VUE_APP_API_URL}/pedidos/${idPedido}`, {
-                method: "DELETE",
-            });
-            this.listaPedidosRealizados;
-            this.consultarPedidos();
+            try {
+                await fetch(`${process.env.VUE_APP_API_URL}/pedidos/${idPedido}`, {
+                    method: "DELETE",
+                });
+                this.listaPedidosRealizados;
+                this.exibirAlerta("Pedido eliminado permanentemente.", "warning", "warning")
+                this.consultarPedidos();
+            }
+            catch (error) {
+                this.exibirAlerta("Erro ao eliminar.", "error", "circle-xmark");
+            }
         },
     },
     mounted() {
