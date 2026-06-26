@@ -39,7 +39,6 @@ export default {
     align-items: center;
     padding: 1em;
     margin: 1.5em;
-    max-width: 400px;
     border-radius: 8px;
     font-weight: bold;
     text-align: start;
