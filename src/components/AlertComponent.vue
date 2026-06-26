@@ -1,8 +1,10 @@
 <template>
-    <div v-if="visivel" :class="['alert-container', tipo]">
-        <i :class="['fa-solid', `fa-${icone}`]"></i>
-        <p>{{ mensagem }}</p>
-    </div>
+    <Transition name="fade">
+        <div v-if="visivel" :class="['alert-container', tipo]">
+            <i :class="['fa-solid', `fa-${icone}`]"></i>
+            <p>{{ mensagem }}</p>
+        </div>
+    </Transition>
 </template>
 
 <script>
@@ -71,5 +73,16 @@ export default {
     background-color: #dbeafe;
     color: var(--color-info);
     border: 1px solid var(--color-info);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+    transform: translateY(-20px);
 }
 </style>
